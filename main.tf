@@ -21,7 +21,7 @@ module "eks" {
   private_subnet_ids = module.vpc.private_subnet_ids
   eks_role_arn       = module.iam.eks_role_arn
   node_role_arn      = module.iam.node_role_arn
-  k8s_version        = "1.29"
+  k8s_version        = "1.32"
   instance_type      = "t3.medium"
   desired_nodes      = 2
   max_nodes          = 4
