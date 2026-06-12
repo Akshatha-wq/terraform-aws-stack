@@ -16,7 +16,7 @@ def test_rds_instance_available():
     rds = boto3.client("rds", region_name=REGION)
     dbs = rds.describe_db_instances()
     names = [db["DBInstanceIdentifier"] for db in dbs["DBInstances"]]
-    assert f"{ENV}-appdb" in names
+    assert f"{ENV.lower()}-appdb" in names
 
 
 def test_vpc_exists():

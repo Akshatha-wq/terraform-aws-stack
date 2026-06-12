@@ -6,7 +6,7 @@ resource "aws_db_subnet_group" "main" {
 }
 
 resource "aws_security_group" "rds" {
-  name        = "${var.env}-rds-sg"
+  name        = "${lower(var.env)}-rds-sg"
   description = "Allow PostgreSQL access from EKS nodes"
   vpc_id      = var.vpc_id
 
@@ -29,7 +29,7 @@ resource "aws_security_group" "rds" {
 }
 
 resource "aws_db_instance" "main" {
-  identifier             = "${var.env}-appdb"
+  identifier             = "${lower(var.env)}-appdb"
   engine                 = "postgres"
   engine_version         = "15"
   instance_class         = var.instance_class
