@@ -18,7 +18,7 @@ module "eks" {
   source = "./modules/eks"
 
   env                = terraform.workspace
-  private_subnet_ids = module.vpc.private_subnet_ids
+  public_subnet_ids = module.vpc.public_subnet_ids
   eks_role_arn       = module.iam.eks_role_arn
   node_role_arn      = module.iam.node_role_arn
   k8s_version        = "1.32"

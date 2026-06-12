@@ -13,9 +13,8 @@ variable "k8s_version" {
   type        = string
 }
 
-variable "private_subnet_ids" {
-  description = "List of private subnet IDs for the EKS cluster and node group."
-  type        = list(string)
+variable "public_subnet_ids" {
+  type = list(string)
 }
 
 variable "node_role_arn" {

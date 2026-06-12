@@ -4,7 +4,7 @@ resource "aws_eks_cluster" "main" {
   version  = var.k8s_version
 
   vpc_config {
-    subnet_ids              = var.private_subnet_ids
+    subnet_ids              = var.public_subnet_ids
     endpoint_private_access = true
     endpoint_public_access  = true
   }
@@ -16,7 +16,7 @@ resource "aws_eks_node_group" "main" {
   cluster_name    = aws_eks_cluster.main.name
   node_group_name = "${var.env}-nodes"
   node_role_arn   = var.node_role_arn
-  subnet_ids      = var.private_subnet_ids
+  subnet_ids      = var.public_subnet_ids
   instance_types  = [var.instance_type]
 
   scaling_config {
